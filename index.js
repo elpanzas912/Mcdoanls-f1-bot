@@ -149,6 +149,16 @@ console.log("🚀 Tracker de McDonald's F1 iniciado.");
 console.log(`Revisando cada ${CHECK_INTERVAL_MINUTES} minutos.`);
 console.log(`Notificando al canal con ID: ${process.env.TELEGRAM_CHAT_ID}`);
 
+// Notificar por Telegram que el bot se ha iniciado.
+const startMessage = `🚀 *Tracker de F1 Iniciado* 🚀
+
+` +
+                     `El bot ha comenzado a monitorear el stock del auto de F1${escapeMarkdown('.')}
+
+` +
+                     `*Frecuencia de revisión:* cada ${CHECK_INTERVAL_MINUTES} minutos${escapeMarkdown('.')}`;
+sendTelegramMessage(startMessage);
+
 // Hacemos una primera revisión inmediata al iniciar el script.
 checkAvailability();
 
